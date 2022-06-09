@@ -3,13 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@hookform/error-message": "^2.0.0",
+    "@hookform/resolvers": "^2.9.0",
+    "@mui/icons-material": "^5.8.3",
+    "@mui/material": "^5.8.3",
+    "@supabase/supabase-js": "^1.35.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-hook-form": "^7.31.3",
+    "react-query": "^3.39.1",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +45,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.12",
+    "@types/react-dom": "^18.0.5",
+    "@types/testing-library__jest-dom": "^5.14.3",
+    "@types/testing-library__user-event": "^4.2.0",
+    "@types/yup": "^0.29.14"
+  },
+  "proxy": "http://localhost:4000"
 }
