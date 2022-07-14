@@ -5,10 +5,10 @@ import { fetchTodos } from "../api/todo";
 import { useUserContext } from "../hooks/useUserContext";
 import { Todo } from "./Todo";
 
-export function TodoList() {
+export function TodoList({ tenant }) {
   const { onLogout } = useUserContext();
   const { data, error, isLoading, isError, isSuccess } = useQuery(
-    ["todos"],
+    ["todos", tenant],
     fetchTodos
   );
 

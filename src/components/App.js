@@ -2,6 +2,7 @@ import { Auth } from "./Auth";
 import { TodoList } from "./TodoList";
 import { UserProvider } from "./UserProvider";
 import { QueryClientProvider, QueryClient } from "react-query";
+import { TenantSelector } from "./TenantSelector";
 
 const client = new QueryClient({
   defaultOptions: {
@@ -13,11 +14,17 @@ const client = new QueryClient({
 
 function App() {
   return (
-    <QueryClientProvider client={client}>
-      <UserProvider>
-        {({ user }) => (user === null ? <Auth /> : <TodoList />)}
-      </UserProvider>
-    </QueryClientProvider>
+    <TenantSelector>
+      {({ tenant }) => (
+        <QueryClientProvider client={client}>
+          <UserProvider>
+            {({ user }) =>
+              user === null ? <Auth /> : <TodoList tenant={tenant} />
+            }
+          </UserProvider>
+        </QueryClientProvider>
+      )}
+    </TenantSelector>
   );
 }
 

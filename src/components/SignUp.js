@@ -22,7 +22,13 @@ export function SignUp() {
   });
 
   const handleSubmit = async ({ email, password }) => {
-    const { user, error } = await onSignUp({ email, password });
+    const { user, error, session } = await onSignUp({ email, password });
+
+    if (user && !session) {
+      form.setError("email", {
+        message: "Confirmation email has been sent",
+      });
+    }
 
     if (!user && error?.message) {
       form.setError("email", error);
